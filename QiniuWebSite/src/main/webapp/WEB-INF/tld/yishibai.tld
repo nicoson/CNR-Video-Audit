@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<description>yishibai 1.0 core library</description>
+	<display-name>yishibai core</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>yishibai</short-name>
+	
+ <tag>
+	<name>auth</name>
+	<tag-class>com.vccloud.common.tag.AuthTags</tag-class>
+	<body-content>JSP</body-content>
+	<attribute>
+		 <name>authId</name>
+		 <required>true</required>
+		 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+ </tag>
+	
+ <tag>
+	<name>dateTime</name>
+	<tag-class>com.vccloud.common.tag.DateTimeTags</tag-class>
+	<body-content>empty</body-content>
+	<attribute>
+		 <name>format</name>
+		 <required>true</required>
+		 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		 <name>date</name>
+		 <required>true</required>
+		 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+ </tag>
+ 
+ <tag>
+	<name>select</name>
+	<tag-class>cn.caijiajia.tag.common.SelectTags</tag-class>
+	<body-content>empty</body-content>
+	<attribute>
+	 <name>id</name>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>name</name>
+	 <required>true</required>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>list</name>
+	 <required>false</required>
+	 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>dicCode</name>
+	 <required>false</required>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>listKey</name>
+	 <required>false</required>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>listValue</name>
+	 <required>false</required>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>value</name>
+	 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>hasEmpty</name>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+
+	<attribute>
+	 <name>style</name>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+	 <name>classStyle</name>
+	 <rtexprvalue>false</rtexprvalue>
+	</attribute>
+ </tag>
+ 
+ <tag>
+	<name>deptDetail</name>
+	<tag-class>com.vccloud.common.tag.DeptConvertTag</tag-class>
+	<body-content>empty</body-content>
+	<attribute>
+		 <name>deptId</name>
+		 <required>true</required>
+		 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+ </tag>
+ 
+  <tag>
+	<name>convertCodeValue</name>
+	<tag-class>com.vccloud.common.tag.CodeConvertTag</tag-class>
+	<body-content>empty</body-content>
+	<attribute>
+		 <name>code</name>
+		 <required>true</required>
+		 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		 <name>type</name>
+		 <required>true</required>
+		 <rtexprvalue>true</rtexprvalue>
+	</attribute>
+ </tag>
+ 
+</taglib>

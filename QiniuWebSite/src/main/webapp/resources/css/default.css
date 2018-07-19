@@ -1,0 +1,159 @@
+#daohang{padding:8px 5px;background-color:#f1f1f1;border-bottom:1px solid #888;text-align:left;font-weight:bolder;font-family:΢���ź�;font-size:11pt;}
+.ellipsis {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.mt5ml5{
+	margin-top: 5px;
+	margin-left: -5px;
+}
+
+.show{
+	display: block;
+}
+
+.hide{
+	display: none;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float:right;
+}
+
+.pt1{
+	padding-top:1px;
+}
+
+.search-hr{
+	border-color: #cccccc;
+}
+
+.padding_top_none{
+	padding-top:0!important;
+}
+
+.margin_top_10{
+	margin-top:10px!important;
+}
+
+.margin_top_minus_2{
+	margin-top:-2px!important;
+}
+
+.margin_top_minus_5{
+	margin-top:-5px!important;
+}
+
+.margin_top_minus_40{
+	margin-top:-40px!important;
+}
+
+.seach_button_div {
+	text-align:right;
+	margin-right:91px;
+	padding:0;
+}
+
+.data_table_div {
+	width:1100px; 
+	height:440px; 
+	overflow:scroll;
+	overflow-y: hidden;
+}
+
+.org_tree {
+	width:328px;
+	height:350px; 
+	overflow:auto;
+	overflow-x: hidden;
+}
+
+.org_tree_title_div_top {
+	border: solid 1px #C5D0DC;
+	height:42px; 
+	width: 100%;
+	float: left;
+	background-color: #EFF3F8;
+}
+
+.org_tree_title_div {
+	border-left:1px solid #7DB4D8; 
+	border-right:1px solid #7DB4D8;
+	border-top:2px solid #7DB4D8; 
+	text-align:center;
+	background-color:white ;
+	width:100px;
+	height:34px;
+	margin-top: 8px;
+	margin-left: 5px;
+	line-height: 30px;
+	font-size: 14px;
+}
+/*清除图标*/
+.delquery {
+	background-image: url("../ace/img/clear.png");
+	background-repeat:no-repeat;
+	background-position: 3px 4px;
+	margin-right:15px;
+	margin-top:2px;
+    height: 20px;
+    cursor:pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+}
+
+.promptitle{
+	width:100px;
+	float: left;
+	font-weight: bold;
+	font-size: 13px;
+	text-align: right;
+}
+
+.prompvalue{
+	width:140px;
+	float: left;
+}
+
+.namebutt{
+	float: left;
+	list-style: none;
+	position: relative;
+	margin: 3px 0 3px 5px;
+	padding: 3px 20px 3px 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	background-color: #e4e4e4;
+	background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(20%, #f4f4f4),
+		color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8),
+		color-stop(100%, #eee) );
+	background-image: -webkit-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%
+		);
+	background-image: -moz-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+	background-image: -o-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+	background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+	background-clip: padding-box;
+	box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, .05);
+	color: #333;
+	line-height: 13px;
+	cursor: default
+}
+
+.namebutta{
+	position: absolute;
+	top: 4px;
+	right: 3px;
+	display: block;
+	width: 12px;
+	height: 12px;
+	background: url(../ace/css/chosen-sprite.png) -42px 1px no-repeat;
+	font-size: 1px
+}
+

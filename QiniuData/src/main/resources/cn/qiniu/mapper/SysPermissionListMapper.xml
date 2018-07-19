@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.qiniu.mapper.SysPermissionListMapper" >
+  <select id="getUserResList" resultType="cn.qiniu.entity.SysResource" parameterType="cn.qiniu.entity.SysResourceSearch" >
+		SELECT
+			resource_id resourceId, resource_url resourceUrl,
+			resource_ident resourceIdent,resource_nm resourceNm,
+			resource_type resourceType,
+			is_show isShow,
+			resource_pic resourcePic,
+			sort_no sortNo,
+			parent_resource_id parentResourceId,
+			resource_nm resourceNm ,
+			del_flg delFlg
+		FROM
+			sys_resource r
+		WHERE
+			r.resource_id IN (
+				SELECT
+					rs.resource_id
+				FROM
+					sys_role_resource rs
+				LEFT JOIN sys_user_role u ON rs.role_id = u.role_id
+				WHERE
+					u.user_id = #{resourceId}
+					and u.del_flg = '0' and rs.del_flg = '0'
+			) and r.is_show = '1'
+  </select>
+  
+</mapper>

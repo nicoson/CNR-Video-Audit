@@ -1,0 +1,34 @@
+﻿    .toast{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width:100%;
+      height:40px;
+      line-height:40px;
+      text-align:center;
+      opacity: 0;
+    }
+    .toast_success{
+       background-color: #ecfeda;
+       color: #73c224;
+    }
+    .toast_warning{
+      background-color: #fefbd0;
+      color: #c0b300;
+    }
+    .toast_error{
+      background-color: #fedada;
+      color: #fa5b5b;
+    }
+    .toast_text_success{
+       /*background-color: #ecfeda;*/
+       color: #73c224;
+    }
+    .toast_text_warning{
+      /*background-color: #fefbd0;*/
+      color: #c0b300;
+    }
+    .toast_text_error{
+      /*background-color: #fedada;*/
+      color: #fa5b5b;
+    }

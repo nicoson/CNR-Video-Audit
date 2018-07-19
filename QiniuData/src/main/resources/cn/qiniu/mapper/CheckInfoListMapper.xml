@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.qiniu.mapper.CheckInfoListMapper">
+	<select id="getCheckInfoList" resultType="cn.qiniu.entity.ReviewVideoManager">
+		SELECT
+		manager.id id,
+		manager.job_id jobId,
+		manager.source source,
+		manager.video_uri videoUri,
+		manager.video_cover videoCover,
+		manager.review_stage reviewStage,
+		manager.review_level reviewLevel,
+		manager.review_manual_level reviewManualLevel,
+		manager.review_robotic_level reviewRoboticLevel,
+		manager.review_robotic_score reviewRoboticScore,
+		manager.review_ops_pulp_manual_level reviewOpsPulpManualLevel,
+		manager.review_ops_pulp_robotic_level reviewOpsPulpRoboticLevel,
+		manager.review_ops_pulp_robotic_score reviewOpsPulpRoboticScore,
+		manager.review_ops_terror_manual_level reviewOpsTerrorManualLevel,
+		manager.review_ops_terror_robotic_level reviewOpsTerrorRoboticLevel,
+		manager.review_ops_terror_robotic_score reviewOpsTerrorRoboticScore,
+		manager.review_ops_politician_manual_level reviewOpsPoliticianManualLevel,
+		manager.review_ops_politician_robotic_level reviewOpsPoliticianRoboticLevel,
+		manager.review_ops_politician_robotic_score reviewOpsPoliticianRoboticScore,
+		manager.video_name videoName,
+		manager.video_time videoTime,
+		manager.reviewer_id reviewerId,
+		manager.created_by createdBy,
+		manager.created_at createdAt,
+		manager.updated_by updatedBy,
+		manager.updated_at updatedAt,
+		manager.del_flg delFlg,
+		manager.video_type videoType,
+		manager.live_end liveEnd
+		FROM
+		review_video_manager manager
+		INNER JOIN review_video_information information ON manager.id =
+		information.video_id
+		WHERE
+		manager.del_flg = '0'
+		AND manager.reviewer_id IS NULL
+		AND (
+		manager.review_stage = '1'
+		AND manager.review_level != '0'
+		)
+		AND information.review_type = '2';
+	</select>
+</mapper>

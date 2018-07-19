@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.qiniu.mapper.VideoPageListMapper">
+	<select id="selectVideoPageList" parameterType="cn.qiniu.form.video.VideoListSearch"
+		resultType="cn.qiniu.entity.ReviewVideoManager">
+
+		SELECT
+			id,
+			source source,
+			job_id jobId,
+			video_uri videoUri,
+			video_cover videoCover,
+			review_stage reviewStage,
+			review_level reviewLevel,
+			review_manual_level reviewManualLevel,
+			review_robotic_level reviewRoboticLevel,
+			review_robotic_score reviewRoboticScore,
+			review_ops_pulp_manual_level reviewOpsPulpManualLevel,
+			review_ops_pulp_robotic_level reviewOpsPulpRoboticLevel,
+			review_ops_pulp_robotic_score reviewOpsPulpRoboticScore,
+			review_ops_terror_manual_level reviewOpsTerrorManualLevel,
+			review_ops_terror_robotic_level reviewOpsTerrorRoboticlevel,
+			review_ops_terror_robotic_score reviewOpsTerrorRoboticScore,
+			review_ops_politician_manual_level reviewOpsPoliticianManualLevel,
+			review_ops_politician_robotic_level reviewOpsPoliticianRoboticLevel,
+			review_ops_politician_robotic_score reviewOpsPoliticianRoboticScore,
+			video_name videoName,
+			video_time videoTime,
+			created_by createdBy,
+			created_at createdAt,
+			updated_by updatedBy,
+			updated_at updatedAt,
+			video_type videoType,
+			live_end liveEnd,
+			del_flg delFlg
+		FROM
+			review_video_manager
+		WHERE
+			del_flg = '0'
+			<if test="reviewStage != null and reviewStage != '' and reviewStage != 'null'">
+				AND review_stage = #{reviewStage}
+			</if>
+				AND locate(review_robotic_level,#{reviewLevel}) > 0
+			ORDER BY created_at 
+			LIMIT #{pageStart},
+			#{pageEnd};
+	</select>
+	
+	
+	<select id="selectMaxPageSize" parameterType="cn.qiniu.form.video.VideoListSearch"
+		resultType="String">
+		SELECT
+			count(id)
+		FROM
+			review_video_manager
+		WHERE
+			del_flg = '0'
+			<if test="reviewStage != null and reviewStage != ''">
+				AND review_stage = #{reviewStage}
+			</if>
+				AND locate(review_robotic_level,#{reviewLevel}) > 0
+	</select>
+</mapper>

@@ -1,0 +1,84 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true" name="shirocache">
+	<diskStore path="user.dir" />
+
+	<defaultCache 
+		name="default-cache"
+		maxElementsInMemory="10000" 
+		maxElementsOnDisk="0"
+		eternal="false" 
+		overflowToDisk="true" 
+		timeToIdleSeconds="1200"
+		timeToLiveSeconds="1200">
+	</defaultCache>
+	<cache 
+		name="qiniuCache"  
+		maxElementsInMemory="10000"
+		maxElementsOnDisk="0" 
+		eternal="true"  
+		overflowToDisk="true"
+		diskSpoolBufferSizeMB="20" 
+		timeToIdleSeconds="300" 
+		timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="FIFO">
+		
+	</cache>
+   登录记录缓存 锁定10分钟
+    <cache name="passwordRetryCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="authorizationCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="authenticationCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="shiro-activeSessionCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+</ehcache>
+
+
+
+	Default Cache configuration. These will applied to caches programmatically created through the CacheManager.  
+    The following attributes are required for defaultCache:  
+
+      maxInMemory       - Sets the maximum number of objects that will be created in memory  
+      
+      eternal           - Sets whether elements are eternal. If eternal,  timeouts are ignored and the element  
+                          is never expired.  
+                          
+      timeToIdleSeconds - Sets the time to idle for an element before it expires. Is only used  
+                          if the element is not eternal. Idle time is now - last accessed time  
+
+      timeToLiveSeconds - Sets the time to live for an element before it expires. Is only used  
+                          if the element is not eternal. TTL is now - creation time  
+
+      overflowToDisk    - Sets whether elements can overflow to disk when the in-memory cache  
+                          has reached the maxInMemory limit.  
+  -->

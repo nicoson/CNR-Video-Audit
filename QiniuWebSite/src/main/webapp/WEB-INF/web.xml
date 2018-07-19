@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ <description>版权所有</description>
+ <display-name>央广视讯播控系统</display-name>
+
+ 
+ <context-param>     
+     <param-name>contextConfigLocation</param-name>     
+     <param-value>classpath:applicationContext*.xml</param-value>     
+ </context-param>     
+  <listener>     
+     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>     
+ </listener> 
+ 
+ 	<!-- Filter 定义 --> 
+ 	<!-- 配置Shiro过滤器,先让Shiro过滤系统接收到的请求 -->  
+	<!-- 这里filter-name必须对应applicationContext.xml中定义的<bean id="shiroFilter"/> -->  
+	<!-- 使用[/*]匹配所有请求,保证所有的可控请求都经过Shiro的过滤 -->  
+	<!-- 通常会将此filter-mapping放置到最前面(即其他filter-mapping前面),以保证它是过滤器链中第一个起作用的 -->  
+	<filter>  
+	    <filter-name>shiroFilter</filter-name>  
+	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>  
+	    <init-param>  
+	    <!-- 该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理 -->  
+	    <param-name>targetFilterLifecycle</param-name>  
+	    <param-value>true</param-value>  
+	    </init-param>  
+	</filter>  
+	<filter-mapping>  
+	        <filter-name>shiroFilter</filter-name>  
+	        <url-pattern>/*</url-pattern>  
+	</filter-mapping>
+ 	 
+    <!-- Character Encoding filter -->  
+    <filter>  
+        <filter-name>encodingFilter</filter-name>  
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+        <init-param>  
+            <param-name>encoding</param-name>  
+            <param-value>UTF-8</param-value>  
+        </init-param>  
+        <init-param>  
+            <param-name>forceEncoding</param-name>  
+            <param-value>true</param-value>  
+        </init-param>  
+    </filter>  
+    <!-- Filter 映射 -->  
+    <filter-mapping>  
+        <filter-name>encodingFilter</filter-name>  
+        <url-pattern>*.do</url-pattern>  
+    </filter-mapping> 
+ 
+ 
+	 <filter>  
+	    <filter-name>sessionFilter</filter-name>  
+	    <filter-class>cn.qiniu.filter.common.SessionFilter</filter-class>  
+	</filter>  
+	<filter-mapping>  
+	    <filter-name>sessionFilter</filter-name>  
+	    <url-pattern>*.do</url-pattern>  
+	</filter-mapping>
+	 
+ 
+     
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+     <init-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>classpath:spring-servlet.xml</param-value>  
+    </init-param>  
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+ 
+ 
+ 
+ <servlet>
+ <servlet-name>portalServlet</servlet-name> 
+ <servlet-class>cn.qiniu.filter.common.HttpServletProxy</servlet-class>
+ </servlet>
+<servlet-mapping> 
+ <servlet-name>portalServlet</servlet-name>
+  <url-pattern>/portalServlet</url-pattern>
+</servlet-mapping>
+
+ <servlet>
+ <servlet-name>mobileServlet</servlet-name> 
+ <servlet-class>cn.qiniu.filter.common.HttpServletProxy</servlet-class>
+ </servlet>
+<servlet-mapping> 
+ <servlet-name>mobileServlet</servlet-name>
+  <url-pattern>/mobileServlet</url-pattern>
+</servlet-mapping>
+
+	<!-- session创建与销毁 -->
+	<listener>  
+	    <listener-class>cn.qiniu.listener.common.SessionListener</listener-class>  
+	</listener>
+
+ <jsp-config>
+  <taglib>
+   <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+   <taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>/ysb</taglib-uri>
+   <taglib-location>/WEB-INF/tld/yishibai.tld</taglib-location>
+  </taglib>
+ </jsp-config>
+ 
+  <!-- 404错误发生的时候，跳转到404.jsp -->
+  <error-page>  
+    <error-code>404</error-code>  
+    <location>/common/404.jsp</location>  
+  </error-page>
+  <welcome-file-list>
+  	<welcome-file>index/welcome.do</welcome-file>
+  </welcome-file-list>
+</web-app>

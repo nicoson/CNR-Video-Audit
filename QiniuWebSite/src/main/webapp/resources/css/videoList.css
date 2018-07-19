@@ -1,0 +1,185 @@
+body {
+	background-color: transparent !important;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+}
+
+.opreateBtnCon {
+	height: 35px;
+	margin-bottom: 20px;
+}
+
+.opreateBtnCon .uploadBtn {
+	float: left;
+	width: 100px;
+	border-radius: 5px;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	background: #018DF8;
+	color: white;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.opreateBtnCon .refresh {
+	float: left;
+	height: 35px;
+	width: 50px;
+	text-align: center;
+	line-height: 35px;
+	margin-left: 20px;
+	color: #018DF8;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.videoImg {
+    border-radius: 5px;
+    height: 60px;
+    width: 100px;
+}
+
+.dangerLevel {
+	float: right;
+}
+
+.selectCon {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.videoTab {
+	
+}
+
+#main {
+	width: 100%;
+	font-size: 14px;
+}
+
+#main tr td {
+	text-align: center;
+	border-bottom: 2px solid #7B7E86;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#main tr .videoName{
+	/* text-align: left !important; */
+}
+#main tr th {
+	border-bottom: 2px solid #7B7E86;
+	padding-bottom: 10px;
+}
+
+#main tr th,.txtColor {
+	color: #81848C;
+	font-size: 1em;
+	text-align: center;
+}
+
+.videoNameColor {
+	color: #FBFBFB;
+	text-align: left !important;
+}
+
+.opreateBtn {
+	float: left;
+	margin-left: 7%;
+	cursor: pointer;
+}
+/*机审状态：处理中的样式*/
+.roboticState_inProcess {
+	color: #228BF4;
+}
+/*机审状态：其他的样式*/
+.roboticState_other {
+	color: #FBFBFB;
+}
+/*人审状态：处理中*/
+.manualState_inProcess {
+	color: #228BF4;
+}
+/*未开始*/
+.manualState_unStart {
+	color: #A6A6A8;
+}
+/*通过*/
+.manualState_pass {
+	color: #08C23C;
+}
+/*不通过*/
+.manualState_closure {
+	color: #EF011A;
+}
+/*危险等级 ：高*/
+.dangerLevel_height {
+	color: #EF011A;
+}
+
+.dangerLevel_middle {
+	color: #F4821F;
+}
+
+.dangerLevel_low {
+	color: #BF8F24;
+}
+
+.dangerLevel_none {
+	color: #7A7B7E;
+}
+
+.dangerLevel_unknown {
+	color: #8E8E92;
+}
+
+.bcLabel {
+	display: inline-block;
+	margin-left: 4px;
+}
+.videoHid{
+	height: 60px;
+}
+/*分页按钮 样式  start*/
+.page-content{
+	text-align: right;
+
+}
+.page-content div{
+display: inline-block;
+    background: #5BC0DE;
+    cursor: pointer;
+    color: #fff;
+    width: 55px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 6px;
+}
+.page-content input{
+	width: 50px;
+	outline:none;
+	border-radius: 6px;
+	padding-left: 6px;
+	font-size: 13px;
+	height: 30px;
+	border:none;
+	margin-right: 3px;
+	margin-left: 3px;
+}
+.page-content label{
+	color:#fff;
+}
+.pager_pre{
+	
+}
+.pager_next{
+	
+}
+
+/*按钮灰掉*/
+.disableClass{
+	    background: #C1C1C1 !important;
+	
+}

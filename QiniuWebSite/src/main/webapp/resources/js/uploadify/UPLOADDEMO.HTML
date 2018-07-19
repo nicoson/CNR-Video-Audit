@@ -1,0 +1,180 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="ysb" uri="/ysb"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ include file="../Header.inc"%>
+<script type="text/javascript" src="${jsPath}/fv.js"></script>
+ <link href="${jsPath}/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${jsPath}/uploadify/jquery.uploadify.min.js"></script>
+</head>
+	<script type="text/javascript">
+		$(function() {
+			$("#uploadify").uploadify({
+				debug			: false, 
+				swf 			: '${jsPath}/uploadify/uploadify.swf',	//swf文件路径
+				method			: 'post',	// 提交方式
+				uploader		: '${base}/processUpload', // 服务器端处理该上传请求的程序(servlet, struts2-Action)
+				preventCaching	: true,		// 加随机数到URL后,防止缓存
+				buttonCursor	: 'hand',	// 上传按钮Hover时的鼠标形状
+			//	buttonImage		: 'img/.....png',	// 按钮的背景图片,会覆盖文字
+				buttonText		: '选择附件..'	, //按钮上显示的文字，默认”SELECTFILES”
+				height			: 30	, // 30 px
+				width			: 150	, // 120 px
+				fileObjName		: 'filedata',	//文件对象名称, 即属性名
+				fileSizeLimit	: 10000,		// 文件大小限制, 100 KB
+				fileTypeDesc	: 'any'	,	//文件类型说明 any(*.*)
+				fileTypeExts	: '*.*;*.txt',		// 允许的文件类型,分号分隔
+				formData		: {'id':'1', 'name':'myFile'} , //指定上传文件附带的其他数据。也动态设置。可通过getParameter()获取
+				multi			: true ,	// 多文件上传
+				progressData	: 'speed',	// 进度显示, speed-上传速度,percentage-百分比	
+				queueID			: 'fileQueue',//上传队列的DOM元素的ID号
+				queueSizeLimit	: 99	,	// 队列长度
+				removeCompleted : false	,	// 上传完成后是否删除队列中的对应元素
+				removeTimeout	: 10	,	//上传完成后多少秒后删除队列中的进度条, 
+				requeueErrors	: true,	// 上传失败后重新加入队列
+				uploadLimit		: 20,	// 最多上传文件数量
+				successTimeout	: 30	,//表示文件上传完成后等待服务器响应的时间。超过该时间，那么将认为上传成功。
+				// 在文件被移除出队列时触发	
+				//onCancel : function(file) { alert( 'The file ' + file.name + ' was cancelled!' ); },
+				// 在调用cancel方法且传入参数’*’时触发
+				//onClearQueue : function (queueItemCount) { alert( queueItemCount + ' files were removed from the queue!' ); },
+				// 打开文件对话框 关闭时触发
+				onDialogClose : function (queueData) {
+								/*	alert(
+										"文件对话窗口中选了几个文件:" + queueData.filesSelected + "---" +
+										"队列中加了几个文件:" + queueData.filesQueued + "---" +
+										"队列中被替换掉的文件数:" + queueData.filesReplaced + "---" +
+										"取消掉的文件数:" + queueData.filesCancelled + "---" + 
+										"上传出错的文件数:" + queueData.filesErrored
+									); */
+								},
+				
+				// 选择文件对话框打开时触发
+				onDialogOpen : function () { /*alert( 'please select files' ) */ },
+			
+				// 没有兼容的FLASH时触发
+				onFallback : function(){ alert( 'Flash was not detected!' ) },
+				// 每次初始化一个队列时触发, 即浏览文件后, 加入一个队列
+				//onInit : function (instance) { alert( 'The queue ID is ' + instance.settings.queueID ) },
+				// 上传文件处理完成后触发（每一个文件都触发一次）, 无论成功失败
+				//onUploadComplete : function(file){ alert( 'The file ' + file.name + ' uploaded finished!' ) },
+				// 上传文件失败触发
+				onUploadError : function(file, errorCode, errorMsg, errorString){ 
+                                    /*
+                                    alert(
+                                        file.name + ' upload failed! ' + 
+                                        'errorCode: ' + errorCode +
+                                        'errorMsg:' + errorMsg +
+                                        'errorString:' + errorString
+                                    );*/
+								},
+                
+                // 在每一个文件上传成功后触发
+                onUploadSuccess : function(file, data, response) {
+                //data为返回的文件名，请保持到业务测
+                                    alert(
+                                        file.name + ' is uploaded succeed!  ' +
+                                        '  server-side returned data:' + data +
+                                        '  response: ' + response
+                                    );
+                                  }
+			});
+		})
+	</script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+     $('#addPageButton').bind('click',function(e) {
+     	//验证失败返回false
+	    if(!ysbFormValidate(document.getElementById("addRecord"))) return;
+      	$.ajax({
+		   type: "POST",async: false,cache: false,
+		   url: "${base }/train/addCourse.action",
+		   data: $("#addRecord").serialize(),
+		   complete: function(msg){
+		   		if(msg.responseText=='1'){
+		   			top.showInfo("新增成功");
+					document.location.href="${base}/train/courseList.action";
+				}else{
+					top.showInfo("新增失败");
+				}
+		   }
+		});
+    });
+    $('#uploadBtn').bind('click',function(e) {
+    	var flag=0;
+    	var file = '<input id="doc-form-file" type="file">';
+    	$("#doc-form-file").append(file);
+		$("#doc-form-file").click();
+    	alert($("#doc-form-file").val());
+    });
+     
+ });    
+</script>	
+</head>
+<body>
+<ol class="am-breadcrumb" style="margin:0px;background:#eee">
+		<li><a href="#">E-Learning</a></li>
+		<li><a href="${base}/train/courseList.action" target="_self">课程管理</a>
+		</li>
+		<li class="am-active">新增课程</li>
+	</ol>
+	<div>
+		<form class="am-form am-form-horizontal" method="post" target="_self"
+			id="addRecord" name="addRecord">
+			<table width="98%" border="0" cellpadding="0" cellspacing="0"
+				class="list_table" align="center">
+				<tr>
+					<td class="td_width75px_bg" style="width:200px;text-align:center;">课程名称<font
+						style="color:red">*<font>
+					</td>
+					<td class="list_content"><input id="courseName" vr="0&&1"
+						lth="15" name="course.courseName"
+						class="am-input-sm am-form-field" type="text"
+						style="width:300px;float:left;" /></td>
+				</tr>
+				<tr>
+					<td class="td_width75px_bg" style="width:200px;text-align:center;">课程描述</td>
+					<td class="list_content"><textarea
+							style="resize: none;height:150px;width:680px;"
+							id="courseDescription" name="course.courseDescription"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="td_width75px_bg" style="width:200px;text-align:center;">课件</td>
+					<td class="list_content">
+						<div class="am-form-group am-form-file" style="text-align:center;">
+									<a href="javascript:$('#uploadify').uploadify('cancel','*')">取消队列</a>
+										<a href="javascript:$('#uploadify').uploadify('cancel')">取消第一个文件</a>
+										<a href="javascript:$('#uploadify').uploadify('stop', '*')">暂停传输</a>
+										<a href="javascript:$('#uploadify').uploadify('upload', '*')">开始传输</a>
+									<div id="fileQueue"></div>
+									<span id="uploadify"></span>
+							
+						</div></td>
+				</tr>
+			</table>
+			<div class="am-g" style="margin-top:5px">
+				<div class="am-btn-group-xs am-u-sm-3 am-u-sm-centered">
+					<button type="button" class="am-btn am-btn-secondary"
+						id="addPageButton">保存</button>
+					<button type="button" class="am-btn am-btn-secondary closeButton"
+						onclick="javascript:history.go(-1)" id="addPageClose">返回列表</button>
+				</div>
+			</div>
+		</form>
+		<div>
+			<div id="file-list">
+				<input id="doc-form-file" type="file" style="visibility:hidden">
+			</div>
+			
+			
+			
+			
+			
+			
+			
+
+</body>
+</html>

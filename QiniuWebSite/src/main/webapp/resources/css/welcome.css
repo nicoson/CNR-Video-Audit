@@ -1,0 +1,1134 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+  font-family: "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei";
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a {
+  background-color: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*add*/
+ul,
+li {
+  list-style: none;
+}
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #e4e4e4;
+  -webkit-font-smoothing: antialiased;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1474877045_270467.eot');
+  src: url('//at.alicdn.com/t/font_1474877045_270467.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/font_1474877045_270467.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/font_1474877045_270467.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/font_1474877045_270467.svg#iconfont') format('svg');
+  
+  /* IE9*/
+  /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'webfont';
+  src: url('//at.alicdn.com/t/6ncl4i4ckr9t3xr.eot');
+  src: url('//at.alicdn.com/t/6ncl4i4ckr9t3xr.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/6ncl4i4ckr9t3xr.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/6ncl4i4ckr9t3xr.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/6ncl4i4ckr9t3xr.svg#NotoSansHans-DemiLight') format('svg');
+  
+  /* IE9*/
+  /* iOS 4.1- */
+}
+.web-font {
+  font-family: "webfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*
+ * Swiper 2.7.6
+ * Mobile touch slider and framework with hardware accelerated transitions
+ *
+ * http://www.idangero.us/sliders/swiper/
+ *
+ * Copyright 2010-2015, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under GPL & MIT
+ *
+ * Released on: February 11, 2015
+*/
+/* ===============================================================
+Basic Swiper Styles
+================================================================*/
+.swiper-container {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  direction: ltr;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Fix of Webkit flickering */
+  z-index: 1;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  -webkit-transition-property: -webkit-transform, left, top;
+  -webkit-transition-duration: 0s;
+  -webkit-transform: translate3d(0px, 0, 0);
+  -webkit-transition-timing-function: ease;
+  -moz-transition-property: -moz-transform, left, top;
+  -moz-transition-duration: 0s;
+  -moz-transform: translate3d(0px, 0, 0);
+  -moz-transition-timing-function: ease;
+  -o-transition-property: -o-transform, left, top;
+  -o-transition-duration: 0s;
+  -o-transform: translate3d(0px, 0, 0);
+  -o-transition-timing-function: ease;
+  -o-transform: translate(0px, 0px);
+  -ms-transition-property: -ms-transform, left, top;
+  -ms-transition-duration: 0s;
+  -ms-transform: translate3d(0px, 0, 0);
+  -ms-transition-timing-function: ease;
+  transition-property: transform, left, top;
+  transition-duration: 0s;
+  transform: translate3d(0px, 0, 0);
+  transition-timing-function: ease;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  margin: 0 auto;
+}
+.swiper-slide {
+  float: left;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+  -ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+  -ms-touch-action: pan-x;
+}
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+  /* Specify Swiper's Size: */
+  /*width:200px;
+  height: 100px;*/
+}
+.swiper-slide {
+  /* Specify Slides's Size: */
+  /*width: 100%;
+  height: 100%;*/
+}
+.swiper-slide-active {
+  /* Specific active slide styling: */
+}
+.swiper-slide-visible {
+  /* Specific visible slide styling: */
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+  /* Stylize pagination button: */
+}
+.swiper-active-switch {
+  /* Specific active button style: */
+}
+.swiper-visible-switch {
+  /* Specific visible button style: */
+}
+.layout-1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+.topbar {
+  background-color: #383a3d;
+}
+.topbar-inner {
+  margin: auto;
+  width: 1000px;
+  color: #999;
+  font-size: 12px;
+  line-height: 32px;
+}
+.topbar-inner a {
+  color: #999;
+  font-size: 12px;
+}
+.topbar-inner a:hover {
+  color: #fff;
+}
+.topbar-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.topbar-left {
+  float: left;
+}
+.topbar-right {
+  margin-left: 16px;
+  float: right;
+}
+a {
+  text-decoration: none;
+}
+div {
+  box-sizing: border-box;
+}
+.link {
+  color: #38adff;
+  font-size: 15px;
+}
+/*导航样式*/
+.navbar {
+  width: 100%;
+  height: 72px;
+  line-height: 72px;
+  background: #f8f8f8;
+  font-size: 15px;
+}
+.navbar.fixed {
+  position: fixed;
+  top: 0px;
+  z-index: 1000;
+  border-bottom: 1px solid #e4e4e4;
+}
+.navbar .content {
+  width: 1000px;
+  margin: auto;
+}
+.navbar .logo {
+  vertical-align: middle;
+  position: relative;
+  top: -3px;
+}
+.navbar .link {
+  color: #999;
+  font-size: 16px;
+  margin-left: 70px;
+  display: inline-block;
+  position: relative;
+}
+.navbar .link .new {
+  position: absolute;
+  top: 12px;
+  right: -38px;
+  font-size: 12px;
+  color: #F2725E;
+  height: 30px;
+  line-height: 30px;
+}
+.navbar .link.first {
+  margin-left: 110px;
+}
+.navbar .link:hover {
+  color: #38adff;
+}
+.navbar .link:active {
+  color: #38adff;
+  font-weight: bold;
+}
+.navbar .active {
+  color: #38adff;
+}
+.navbar .web-login {
+  font-size: 12px;
+  color: #38adff;
+  margin-left: 10px;
+}
+/*按钮样式*/
+.navbar .btn {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-left: 16px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  cursor: pointer;
+  border: 1px solid #c3c6ce;
+  background: #ffffff;
+  border-radius: 4px;
+  min-width: 80px;
+  color: #414141;
+}
+.navbar .btn:hover {
+  border: 1px solid #a4a8b1;
+  background: #fff;
+  color: #767676;
+}
+.navbar .btn-primary {
+  color: #fff;
+  background-color: #38adff;
+  border-color: rgba(0, 140, 238, 0.72);
+}
+.navbar .btn-primary:hover {
+  color: #fff;
+  border: 1px solid #38adff;
+  background: #5abbff;
+}
+.navbar .btn-primary:active {
+  color: #fff;
+  border: 1px solid #216799;
+  background: #216799;
+}
+.navbar .btn-error {
+  color: #ff4141;
+  background: #ffffff;
+  border: 1px solid #ff4141;
+}
+.navbar .btn-error:hover {
+  color: #ff7474;
+  background-color: #ffffff;
+  border: 1px solid #ff7474;
+}
+.navbar .btn-block {
+  display: block;
+  width: 100%;
+}
+.navbar .btn-xs {
+  padding: 5px 2px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 2px;
+  min-width: 74px;
+}
+.navbar .btn-xxs {
+  padding: 3px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 2px;
+  min-width: 50px;
+}
+.navbar .btn-circle {
+  border-radius: 40px;
+}
+.navbar .btn-primary-border {
+  border-color: #ccc;
+  color: #333;
+}
+.navbar .btn-primary-border:hover {
+  border-color: #1f9ef7;
+  color: #1f9ef7;
+}
+.navbar .btn-primary-border:active {
+  border-color: #216799;
+  color: #216799;
+}
+.navbar .btn-text-sm {
+  font-size: 13px;
+  padding: 8px 0px;
+}
+.navbar .btn-block {
+  margin-top: 10px;
+}
+.dd-video-dialog {
+  position: fixed;
+  z-index: 1001;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.dd-video-dialog.hidden {
+  display: none;
+}
+.dd-video-dialog .bg {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  filter: alpha(opacity=60);
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+.dd-video-dialog .wrap {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 80px;
+}
+.dd-video-dialog .wrap .video {
+  width: 900px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+.dd-video-dialog .wrap .video video {
+  padding: 0px;
+  margin: 0px;
+}
+.dd-video-dialog .wrap .video .close {
+  height: 48px;
+  width: 48px;
+  position: absolute;
+  right: -42px;
+  top: 0px;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url(https://gw.alicdn.com/tps/TB1es2sNpXXXXcbapXXXXXXXXXX-48-48.png);
+  background-image: -webkit-image-set(url(https://gw.alicdn.com/tps/TB1es2sNpXXXXcbapXXXXXXXXXX-48-48.png) 1x, url(https://gw.alicdn.com/tps/TB1zM6BNpXXXXXraXXXXXXXXXXX-96-96.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+.dd-video-dialog .wrap .video .close.hover {
+  background-image: url(https://gw.alicdn.com/tps/TB1yj2nNpXXXXacaFXXXXXXXXXX-48-48.png);
+  background-image: -webkit-image-set(url(https://gw.alicdn.com/tps/TB1yj2nNpXXXXacaFXXXXXXXXXX-48-48.png) 1x, url(https://gw.alicdn.com/tps/TB1xc_RNpXXXXa.XFXXXXXXXXXX-96-96.png) 2x);
+}
+.mod-banner {
+  width: 100%;
+  height: 520px;
+  position: relative;
+}
+.mod-banner .swiper-container {
+  width: 100%;
+  height: 520px;
+}
+.mod-banner .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 520px;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #e4e4e4;
+}
+.mod-banner .swiper-pagination-box {
+  position: absolute;
+  z-index: 30;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  height: 15px;
+}
+.mod-banner .swiper-pagination-box .swiper-pagination-switch {
+  opacity: 0.2;
+  background: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 0 7px;
+  padding-top: 0px;
+  cursor: pointer;
+  position: relative;
+}
+.mod-banner .swiper-pagination-box .swiper-pagination-switch.swiper-active-switch {
+  background: #38adff;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  padding-top: 0px;
+  opacity: 1;
+}
+.mod-banner .block {
+  width: 1120px;
+  height: 520px;
+  margin: 0 auto;
+}
+.mod-banner .block .wrap {
+  position: relative;
+}
+.mod-banner .block .title {
+  position: absolute;
+  top: 170px;
+  left: 60px;
+}
+.mod-banner .block .title .web-font {
+  font-size: 36px;
+  color: #fff;
+  text-align: left;
+}
+.mod-banner .block .desc {
+  position: absolute;
+  top: 230px;
+  left: 60px;
+}
+.mod-banner .block .desc .web-font {
+  opacity: 0.8;
+  font-size: 20px;
+  color: #fff;
+  text-align: left;
+}
+.mod-banner .block .action {
+  position: absolute;
+  top: 290px;
+  left: 60px;
+}
+.mod-banner .block .btn-download {
+  display: block;
+  background: #38adff;
+  border-radius: 4.28px;
+  width: 150px;
+  height: 54px;
+  line-height: 52px;
+  text-align: center;
+  color: #fff;
+  float: left;
+  border: 1px solid #38adff;
+  cursor: pointer;
+}
+.mod-banner .block .btn-download .web-font {
+  font-size: 16px;
+}
+.mod-banner .block .btn-play-video {
+  display: block;
+  border-radius: 4.28px;
+  width: 174px;
+  height: 54px;
+  text-align: left;
+  color: #fff;
+  float: left;
+  margin-left: 24px;
+  border: 1px solid #fff;
+  font-size: 16px;
+  padding-left: 22px;
+  line-height: 54px;
+  position: relative;
+  cursor: pointer;
+}
+.mod-banner .block .btn-play-video .web-font {
+  font-size: 16px;
+}
+.mod-banner .block .btn-play-video .iconfont {
+  font-size: 28px;
+  position: absolute;
+  top: 0px;
+  right: 22px;
+}
+.mod-banner .block .btn-link {
+  display: block;
+  border-radius: 4.28px;
+  width: 174px;
+  height: 54px;
+  text-align: left;
+  color: #fff;
+  float: left;
+  margin-left: 24px;
+  border: 1px solid #fff;
+  font-size: 17px;
+  padding-left: 22px;
+  line-height: 54px;
+  position: relative;
+  cursor: pointer;
+}
+.mod-banner .block .btn-link .iconfont {
+  font-size: 28px;
+  position: absolute;
+  top: 0px;
+  right: 22px;
+}
+.mod-banner .block .btn-play-video:hover {
+  color: #38adff;
+  border-color: #38adff;
+}
+.mod-banner .block .btn-play-video:active {
+  color: #216799;
+  border-color: #216799;
+}
+.mod-banner .block .btn-link:hover {
+  color: #38adff;
+  border-color: #38adff;
+}
+.mod-banner .block .btn-link:active {
+  color: #216799;
+  border-color: #216799;
+}
+.mod-banner .block-5 {
+  background-color: #000;
+  background-image: url(https://gw.alicdn.com/tps/TB1SHDaNVXXXXXwXXXXXXXXXXXX-1800-520.jpg);
+  background-image: -webkit-image-set(url(https://gw.alicdn.com/tps/TB1SHDaNVXXXXXwXXXXXXXXXXXX-1800-520.jpg) 1x, url(https://gw.alicdn.com/tps/TB1ou1DNVXXXXc5XVXXXXXXXXXX-3600-1040.jpg) 2x);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+.mod-banner .block-4 {
+  background-color: #000;
+  background-image: url(https://gw.alicdn.com/tps/TB1Ly_vNFXXXXXfaXXXXXXXXXXX-1800-520.png);
+  background-image: -webkit-image-set(url(https://gw.alicdn.com/tps/TB1Ly_vNFXXXXXfaXXXXXXXXXXX-1800-520.png) 1x, url(https://gw.alicdn.com/tps/TB1202tNFXXXXaxaXXXXXXXXXXX-3600-1040.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+.mod-banner .block-1 {
+  background-color: #1d2023;
+  background-image: url(https://gw.alicdn.com/tps/TB1ARX2NVXXXXX1aFXXXXXXXXXX-1800-520.png);
+  background-image: -webkit-image-set(url(https://gw.alicdn.com/tps/TB1ARX2NVXXXXX1aFXXXXXXXXXX-1800-520.png) 1x, url(https://gw.alicdn.com/tps/TB1rgmJNVXXXXaAXXXXXXXXXXXX-3600-1040.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+.mod-banner .block-2 {
+  background-color: #3a3f47;
+  background-image: url(https://img.alicdn.com/tps/TB1fPHINFXXXXccXVXXXXXXXXXX-1800-520.png);
+  background-image: -webkit-image-set(url(https://img.alicdn.com/tps/TB1fPHINFXXXXccXVXXXXXXXXXX-1800-520.png) 1x, url(https://img.alicdn.com/tps/TB1kRDONFXXXXaBXVXXXXXXXXXX-3600-1040.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+.mod-banner .block-3 {
+  background-color: #383d45;
+  background-image: url(https://gw.alicdn.com/tps/TB1WQjYNVXXXXbuapXXXXXXXXXX-1800-520.png);
+  background-image: -webkit-image-set(url(https://gw.alicdn.com/tps/TB1WQjYNVXXXXbuapXXXXXXXXXX-1800-520.png) 1x, url(https://gw.alicdn.com/tps/TB1zLUbNVXXXXbwXVXXXXXXXXXX-3600-1040.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+.mod-banner .block-7 {
+  background-color: #383d45;
+  background-image: url(https://img.alicdn.com/tps/TB19_KzOpXXXXaDXVXXXXXXXXXX-1800-520.png);
+  background-image: -webkit-image-set(url(https://img.alicdn.com/tps/TB19_KzOpXXXXaDXVXXXXXXXXXX-1800-520.png) 1x, url(https://img.alicdn.com/tps/TB1eZWuOpXXXXc9XVXXXXXXXXXX-3600-1040.png) 2x);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+.mod-banner .btn-slide {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 218px;
+  margin: 0px;
+  padding: 0px;
+  z-index: 10;
+  background-color: #ddd;
+  line-height: 40px;
+  text-align: center;
+}
+.mod-banner .btn-slide .iconfont {
+  color: #fff;
+  font-size: 20px;
+}
+.mod-banner .btn-slide.btn-left {
+  left: 0px;
+  background-color: #000;
+  opacity: 0.2;
+}
+.mod-banner .btn-slide.btn-left:hover {
+  opacity: 0.4;
+}
+.mod-banner .btn-slide.btn-right {
+  right: 0px;
+  background-color: #000;
+  opacity: 0.2;
+}
+.mod-banner .btn-slide.btn-right:hover {
+  opacity: 0.4;
+}
+/*footer*/
+.footer {
+  padding: 32px 0px;
+  font-size: 12px;
+  color: #666;
+  width: 1000px;
+  margin: 0 auto;
+}
+.footer .list {
+  overflow: hidden;
+}
+.footer .list_group {
+  float: left;
+  width: 25%;
+}
+.footer .list_group .title {
+  font-size: 14px;
+  color: #000;
+  padding-bottom: 8px;
+}
+.footer .list_group .link {
+  font-size: 12px;
+  color: #666;
+  line-height: 25px;
+  display: block;
+}
+.footer .list_group .link .iconfont {
+  display: inline-block;
+  padding-left: 4px;
+  font-size: 10px;
+}
+.footer .list_group .link:hover {
+  color: #38adff;
+}
+.footer .text {
+  margin-top: 30px;
+  color: #666;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #d8d8d8;
+  margin-bottom: 16px;
+}
+.footer .text .link {
+  font-size: 12px;
+}
+.footer .friend {
+  overflow: hidden;
+  padding: 0px;
+}
+.footer .friend li {
+  float: left;
+  padding: 0px;
+  color: #999;
+}
+.footer .friend li .link {
+  font-size: 12px;
+  color: #999;
+}
+.footer .friend li .link:hover {
+  color: #38adff;
+}
+.footer .icon {
+  color: #999;
+}
+/*微博，微信icon*/
+.footer .contact-weixin,
+.footer .contact-weibo {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+  width: 18px;
+  height: 18px;
+  color: #666;
+  font-size: 12px;
+}
+.footer .contact-weixin:hover,
+.footer .contact-weibo:hover {
+  color: #666;
+}
+.footer .contact-weixin-qrcode {
+  display: none;
+  background-image: url(//img.alicdn.com/tps/TB1lMl1NVXXXXanXVXXXXXXXXXX-150-196.png);
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 196px;
+  position: absolute;
+  top: -200px;
+  left: -67px;
+  z-index: 100;
+}
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+  .footer .contact-weixin-qrcode {
+    background-image: url(//img.alicdn.com/tps/TB1DwWeNVXXXXaPXpXXXXXXXXXX-300-392.png);
+    background-size: 150px 196px;
+  }
+}
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #e4e4e4;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Noto Sans CJK SC", "Source Han Sans CN", 'Hiragino Sans GB', 'Microsoft YaHei', '\5b8b\4f53', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+div {
+  box-sizing: border-box;
+}
+.link {
+  color: #38adff;
+  font-size: 15px;
+}
+.bg1 {
+  background-color: #fff;
+}
+.bg2 {
+  background-color: #f8f8f8;
+}
+.mod-pro {
+  height: 120px;
+  overflow: hidden;
+  text-align: center;
+  line-height: 120px;
+  background-color: #026afe;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.mod-pro .wrap {
+  width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+.mod-pro a {
+  display: block;
+  width: 50%;
+  height: 100%;
+  float: left;
+  cursor: pointer;
+}
+/*card*/
+.home_card {
+  height: 540px;
+  background: #fff;
+  padding: 0px 100px;
+  position: relative;
+}
+.home_card_reverse {
+  background: #f8f8f8;
+}
+.home_card .text_content {
+  text-align: left;
+  padding-top: 80px;
+}
+.home_card_reverse .text_content {
+  text-align: right;
+}
+.text_content .title {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 26px;
+}
+.text_content .title .hot {
+  display: inline-block;
+  background-color: #ff4141;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 24px;
+  padding: 0px 12px;
+  line-height: 36px;
+  position: relative;
+  margin-left: 4px;
+  top: -2px;
+}
+.text_content .title i {
+  font-size: 36px;
+}
+.text_content .article {
+  font-size: 18px;
+  color: #666;
+  opacity: 0.8;
+  line-height: 24px;
+}
+.text_content .link {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+.text_content .link a {
+  color: #38adff;
+}
+.text_content .list {
+  overflow: hidden;
+}
+.home_card .item {
+  width: 70px;
+  float: left;
+}
+.home_card_reverse .item {
+  float: right;
+}
+.home_card .item + .item {
+  margin-left: 32px;
+  margin-right: 0px;
+}
+.home_card_reverse .item + .item {
+  margin-right: 32px;
+  margin-left: 0px;
+}
+.text_content .item .item_title {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+}
+.text_content .item .iconfont {
+  font-size: 48px;
+  color: #ccc;
+  text-align: center;
+}
+.home_card .img_content {
+  position: absolute;
+  bottom: 0px;
+  right: 100px;
+}
+.home_card_reverse .img_content {
+  right: auto;
+  left: 48px;
+}
+/*图片列表card*/
+.img_list_card {
+  padding: 0px 100px;
+  padding-bottom: 64px;
+}
+.img_list_card .opt {
+  padding-top: 20px;
+  text-align: center;
+}
+.img_list_card .title {
+  font-size: 40px;
+  text-align: center;
+  padding-top: 64px;
+}
+.img_list_card .title .web-font {
+  font-size: 36px;
+}
+.img_list_card p {
+  font-size: 18px;
+  color: #666;
+  opacity: 0.8;
+  line-height: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.img_list_card .list {
+  overflow: hidden;
+}
+.img_list_card .list .item {
+  float: left;
+  width: 240px;
+  text-align: center;
+}
+.img_list_card .list .item a {
+  color: #000;
+}
+.img_list_card .list .item + .item {
+  margin-left: 12px;
+}
+.img_list_card .item .text {
+  font-size: 16px;
+  padding-top: 15px;
+  padding-bottom: 23px;
+}
+.img_list_card .item .link {
+  font-size: 18px;
+  color: #38adff;
+}
+/*背景图片card*/
+.bg4 {
+  background-position: center center;
+  background-image: url(https://gw.alicdn.com/tps/TB1ir6YNFXXXXbIXFXXXXXXXXXX-1800-316.png);
+  background-image: -webkit-image-set(url(https://gw.alicdn.com/tps/TB1ir6YNFXXXXbIXFXXXXXXXXXX-1800-316.png) 1x, url(https://gw.alicdn.com/tps/TB1S.fSNFXXXXX6XVXXXXXXXXXX-3600-632.png) 2x);
+  background-color: #191918;
+  background-repeat: no-repeat;
+}
+.img_card {
+  padding: 65px 103px;
+}
+.img_card .title {
+  font-size: 36px;
+  color: #fff;
+  text-align: left;
+  line-height: 56px;
+}
+.img_card .title i {
+  font-size: 36px;
+}
+.img_card .text {
+  font-size: 18px;
+  color: #fff;
+  opacity: 0.8;
+  margin-top: 12px;
+  margin-bottom: 30px;
+}

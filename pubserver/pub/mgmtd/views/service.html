@@ -1,0 +1,51 @@
+<script id="tpl-blk" type="text/x-jquery-tmpl">
+  <div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4 style="font-size:18px">{{html title}}</h4>
+          <p style="font-size:14px">{{html content}}</p>
+          <p>
+            <a href="javascript:fnDetail({{html fdetail}})" class="btn btn-primary" role="button">详细</a>
+            <!-- <a href="{{html fupgrade}}" class="btn btn-default" role="button">升级</a> -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- info diag-->
+<div id="info-diag" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" style="width:50%;">
+    <div class="modal-content">
+      <div class="modal-content conf-content">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="tpl-info" type="text/x-jquery-tmpl">
+  <div>
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <font class="modal-title">{{html title}}</font>
+    </div>
+    <div>
+    </div>
+    <div class="modal-body">
+
+      <div>
+        <textarea class="form-control" rows="10" readonly="readonly" style="color:black">{{html info}}</textarea>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+  </div>
+</script>
+
+
+<div class="grid">
+</div>
+
+<script src="<?.staticPath?>/js/service.js"></script>
