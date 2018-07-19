@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="COMMON"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/logs/QiniuWebSite.log" />
+		<param name="MaxBackupIndex" value="10" />
+		<param name="MaxFileSize" value="100MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%-d{MM-dd HH:mm:ss:SSS}][%t][%p][%c]- %m %n" />
+		</layout>
+	</appender>
+	
+	<appender name="cmd" class="org.apache.log4j.ConsoleAppender">  
+	    <param name="Encoding" value="UTF-8" />  
+	    <param name="Threshold" value="debug" />  
+	    <param name="Target" value="System.out" />  
+	    <layout class="org.apache.log4j.PatternLayout">  
+	       <param name="ConversionPattern"
+				value="[%-d{MM-dd HH:mm:ss:SSS}][%t][%p][%c]- %m %n" />
+		    </layout>  
+	</appender> 
+	<root>
+		<priority value="info" />
+		<appender-ref ref="COMMON" />
+		<appender-ref ref="cmd" />
+	</root>
+</log4j:configuration>

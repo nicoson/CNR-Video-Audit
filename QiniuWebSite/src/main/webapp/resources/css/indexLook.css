@@ -1,0 +1,627 @@
+body {
+	background: #202127;
+	min-width: 1300px;
+    overflow-x: auto;
+	min-height: 600px;
+    overflow-y: auto;
+}
+
+#container {
+	height: 100%;
+	width: 100%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+#topMenu {
+	overflow: hidden;
+	height: 55px;
+}
+
+.logoImgCon {
+	float: left;
+}
+
+.menuNav {
+	float: left;
+	float: left;
+	text-align: center;
+	margin-left: 20px;
+	font-weight: 500;
+	margin-top: 15px;
+	padding-bottom: 2px;
+	font-size: 17px;
+	cursor: pointer;
+}
+
+.videoList {
+	color: white;
+}
+
+.hight {
+	color: #E10127;
+}
+
+.middle {
+	color: #FD8124;
+}
+
+.lower {
+	color: #D29C23;
+}
+
+.numberCon {
+	border-radius: 10px 10px 10px 10px;
+	font-size: 14px;
+	min-width: 30px;
+	display: inline-block;
+	color: white;
+	width: 40px;
+	text-align: center;
+	border: none;
+}
+
+.userName {
+	color: white;
+}
+/*菜单选中样式*/
+.menuSelected {
+	border-bottom: 2px solid #0E4BF6;
+}
+
+#menuIframeCon {
+	height: calc(100% -   60px);
+	/* height: 100%; */
+}
+
+#menuIframeCon #selectedIframe {
+	width: 100%;
+	height: 100%;
+}
+
+#dialogMask {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 100;
+	/*    background-color: #79797D; */
+	top: 0;
+	left: 0;
+	/*     opacity: 0.8; */
+	background: rgba(218, 216, 216, 0.7);
+	    min-width: 1300px;
+}
+
+.opreateBtnCon {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+/*上传视频 弹出层start*/
+.uploadCon {
+	width: 50%;
+	/* text-align: center; */
+	margin-left: 25%;
+	margin-top: 10%;
+	padding: 15px;
+	background: #fff;
+	border-radius: 6px;
+}
+
+.uploadListTxt {
+	text-align: left;
+	margin-bottom: 15px;
+	color: #333;
+}
+
+.uploadFileSub {
+width: 90%;
+    margin-left: 5%;
+    border: 1px dashed #bcbdbd;
+    padding-top: 5%;
+    border-radius: 6px;
+    padding-bottom: 5%;
+}
+
+.uploadPic {
+	color: #E7E9EA;
+}
+
+.uploadWayCon {
+	position: relative;
+	/* width: 40px; */
+	height: 20px;
+}
+
+.tipTxt {
+	position: absolute;
+	left: 13%;
+	cursor: pointer;
+	font-size: 1.3em;
+	font-weight: 500;
+	color: #333;
+	margin-top: 30%;
+}
+
+.fileInput {
+	opacity: 0;
+	position: absolute;
+	top: -59px;
+	height: 84px;
+	left: 31%;
+	width: 200px;
+}
+
+.uploadOtherWay {
+	margin-top: 10px;
+	margin-bottom: 60px;
+	font-size: 15px;
+	color: #AEB0B3;
+}
+
+.inputCon {
+/*width: 90%; */
+    /* margin-left: 5%; */
+ /*    margin-top: 30px; */
+    /* border: 1px dashed #bcbdbd; */
+    /* height: 35px; */
+    /* border-radius: 6px; */
+}
+
+.user_input {
+/* 	outline: none;
+	height: 31px;
+	padding-left: 6px;
+	font-size: 15px; */
+}
+
+.uploadCon .btnCon {
+	overflow: hidden;
+	width: 20%;
+	margin-left: 75%;
+	margin-top: 10px;
+}
+
+.uploadCon .btnCon .btn {
+	width: 60px;
+	border: 1px solid;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 6px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.uploadCon #cancel {
+	float: left;
+	border: 1px solid #CED1D5;
+	background: #F4F6F9;
+	color: #555B68;
+}
+
+.uploadCon #sure {
+	float: right;
+	border: 1px solid #AFD6FD;
+	background: #F4F8FD;
+	color: #3094FA;
+}
+/*上传视频 弹出层end*/
+
+/*审核页面  弹出层start*/
+.singleVideoAuditCon {
+	overflow: hidden;
+	width: 90%;
+	height: 80%;
+	margin-left: 5%;
+	margin-top: 5%;
+	padding: 10px;
+	background: white;
+}
+
+.videoCon {
+	float: left;
+	width: 65%;
+	height: 95%;
+	
+}
+/*视频出错样式start*/
+#videoCon{
+	position: relative;
+}
+/*视频出错样式end*/
+.videoBig {
+	width: 100% !important;
+	/* height: 100%; */
+	object-fit: fill;
+}
+
+.auditOperateCon {
+	overflow: hidden;
+	width: 35%;
+	height: 95%;
+}
+
+.auditConten {
+	float: left;
+	width: 45%;
+	height: 100%;
+	padding-top: 25px;
+	padding-left: 6px;
+	background: #B7B4B4;
+}
+
+.contenLine {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	margin-left: 18px;
+}
+
+.multipleBox {
+	width: 27px;
+	height: 25px;
+}
+
+.contentTxt {
+	position: relative;
+	top: -6px;
+	font-size: 16px;
+	color: #ea0c22;
+}
+
+.auditBtnCon {
+	overflow: hidden;
+	/* margin-top: 15px; */
+	position: relative;
+	top: 11px;
+}
+
+.auditBtn {
+	float: left;
+	margin-left: 26px;
+	width: 45px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 6px;
+	margin-right: -14px;
+	background: #FFFFFF;
+	color: #56A6F9;
+}
+
+.videoTxtCon {
+	float: left;
+	width: 100%;
+	height: 100%;
+	padding-top: 20px;
+	background: #202127;
+	color: #ECECEC;
+}
+
+
+.videoTxtTitle {
+	display: inline-block;
+}
+
+.videoTxtLine {
+	position: relative;
+	padding: 15px;
+	border-bottom: 1px solid #5A5A5D;
+}
+
+.videoTimeTxt {
+	display: inline-block;
+}
+
+.closeaAudit {
+	display: inline-block;
+	position: absolute;
+	top: -27px;
+	font-size: 2em;
+	right: 2px;
+	cursor: pointer;
+}
+
+.peopleAudits {
+	display: inline-block;
+	    float: right;
+}
+
+.videoTimeCon {
+	height: 65%;
+	overflow-y: auto;
+}
+
+.videoTimeLine {
+	border-bottom: 1px solid #5A5A5D;
+	position: relative;
+	padding: 15px;
+	cursor: pointer;
+	padding-right: 3px;
+}
+
+.videoTimeSelected {
+	background: #B7B4B4;
+}
+
+.videoTime {
+	    width: 145px;
+    display: inline-block;
+}
+
+.opreateTip {
+	    float: right;
+}
+
+.auditFinished {
+	width: 80px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin-left: 16%;
+    background: #FFFFFF;
+    color: #56A6F9;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.previewVideo {
+	margin-left: 15%;
+	width: 70%;
+	margin-top: 5%;
+}
+
+.closePreview {
+	width: 40px;
+	height: 40px;
+	font-size: 4em;
+	float: right;
+	cursor: pointer;
+	position: relative;
+	right: 1em;
+	top: -1em;
+	z-index: 100;
+}
+
+/*审核详情页面默认状态*/
+.videoConDefault {
+	width: 70%;
+	float: left;
+	height: 90%;
+}
+
+.auditOperateConDefault {
+	overflow: hidden;
+	width: 30%;
+	height: 90%;
+}
+
+.videoTxtConDefault {
+	float: left;
+	width: 55%;
+	height: 100%;
+	padding-top: 20px;
+	background: #202127;
+	color: #ECECEC;
+}
+
+/*退出按钮*/
+#btnExit {
+	color: #fff;
+	display: inline-block;
+	float: right;
+	margin-top: 1%;
+	margin-right: 2%;
+	cursor: pointer;
+	font-size: 15px;
+}
+/*审核详情页面的  进度条*/
+.controlVideo {
+	width: 100%;
+	height: 35px;
+	background: #FAFAFA;
+}
+
+.playCon {
+	display: inline-block;
+}
+
+._imgPlay {
+	
+}
+
+.currentTimeFormat {
+	
+}
+
+.durtionFormat {
+	
+}
+
+.progressCon {
+	display: inline-block;
+	width: 75%;
+	height: 30px;
+}
+
+.progressBar {
+	display: inline-block;
+	width: 100%;
+	height: 5px;
+	position: relative;
+	background: #DADADA;
+}
+/*视频播放以后的阴影部分*/
+.timeBarLeft {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background-color: #4285F4;
+}
+/*进度条上的圆点*/
+.barTipLeft {
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	border-radius: 50%;
+	/*    margin-left: -11px; */
+	top: -4px;
+	background: #4285F4;
+}
+/*七牛播放视频样式*/
+.previewVideo {
+	width: 70% !important;
+	height: 500px !important;
+}
+
+.previewVideo video {
+	/* object-fit: fill; */
+	height: 500px;
+}
+/*2017-10-11 凌琼芳add 审核详情页面  start*/
+.nav_video {
+	position: relative;
+	padding-bottom: 4px;
+}
+
+.video_navTitle {
+	color: #7EBBF7;
+	display: inline-block;
+	position: relative;
+	padding-bottom: 5px;
+	top: 2px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.selected_nav{
+    border-bottom : 2px solid #7EBBF7;
+}
+.nav_video .closeaAudit {
+	position: absolute;
+	top: -13px;
+}
+
+.bottom_underLine {
+	height: 2px;
+	border: 1px solid #E9ECF2;
+	width: 100%;
+}
+/*封禁按钮*/
+
+.closure_video{
+	width: 80px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+   /* 	margin-left: 16%; */
+    background: #F23434;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+}
+.btn_offset{
+	margin-left: 6%;
+}
+/*选中时间截帧后，视频框和操作栏的高度样式*/
+.selectedTimeCutStyle{
+	height: 90%;
+	
+}
+/*加载box样式*/
+.loadingCon{
+width: 30%;
+    /* text-align: center; */
+    margin-left: 34%;
+    margin-top: 15%;
+    padding: 15px;
+    background: #fff;
+    border-radius: 6px;
+}
+.loadingCon img{
+	width: 160px;
+    height: 160px;
+}
+.loadingTxt{
+    top: -64px;
+    display: inline-block;
+    position: relative;
+    font-size: 1.5em;
+    
+}
+/*预览时，页面加载失败 样式*/
+.prevideoError{
+	color: white;
+    text-align: center;
+}
+
+::-webkit-input-placeholder {
+    color: #D4D4D4;
+}
+:-moz-placeholder {/* Firefox 18- */  
+    color: #D4D4D4;
+ }
+::-moz-placeholder{/* Firefox 19+ */   
+    color:#D4D4D4;
+}
+ :-ms-input-placeholder {  
+   color: #D4D4D4;
+  }
+  /*修改上传文件页面的样式 2017-11-09 add 凌琼芳start*/
+  .uploadFileListCon{
+  	border: 1px solid #DCDFE5;
+  	background: #F5F7FA;
+  	 border-radius: 6px;
+  }
+  .fileLine{
+  	height: 35px;
+    line-height: 35px;
+  }
+  
+  .fileLine label{
+   /*   width: 30%; */
+    display: inline-block;
+    padding-left: 6px;
+     color:#616469; 
+     font-size: 13px;
+  }
+  #uploadFileBtn{
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+  .fileLine .fileName{
+  	 width: 68%;
+  }
+  .fileLine .size{
+  	width: 19%;
+  }
+  .fileLine .fileprogress{
+  	width: 8%;
+  }
+    #uploadFileBtn a{
+    text-decoration: none;
+    width: 100px;
+    height: 35px;
+    border-radius: 6px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #DCDFE5;
+  	background: #F5F7FA;
+    color:#616469; 
+    }
+    .addFileTxt{
+     cursor: pointer;
+    }
+    .inputCon input{
+	outline: none;
+    height: 31px;
+    padding-left: 6px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #DCDFE5;
+    width: 99%;
+    }

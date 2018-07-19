@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        section {
+            height: 80vh;
+            width: 100%;
+            display: flex;
+        }
+
+        section>div {
+            border: 1px solid grey;
+        }
+
+        #qiniu_tm_leftpanel {
+            width: 70%;
+            padding: 2rem;
+            overflow: auto;
+        }
+
+        #qiniu_tm_img {
+            width: 100%;
+        }
+
+        #qiniu_tm_rightpanel {
+            width: 30%;
+            padding: 2rem;
+            overflow: auto;
+        }
+
+        button {
+            margin-top: 1rem;
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: .25rem 1rem;
+            font-size: .7rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        #qiniu_tm_recog_submit {
+            height: 2rem;
+            border-radius: .25rem;
+            border: 1px solid #aaa;
+            padding: .25rem;
+            font-size: .8rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        footer {
+            height: 10vh;
+        }
+
+        #modal_cover {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0,0,0,.5);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .modal-hide {
+            display: none !important;
+        }
+
+        #result_table {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        #result_table td:first-child {
+            width: 30%;
+            padding: 5px;
+            font-weight: 900;
+        }
+
+        #result_table td:last-child {
+            /* width: 80%; */
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="modal_cover" class="modal-hide">
+        <p>waiting... ...</p>
+    </div>
+    <header>
+        <h3>票据识别DEMO</h3>
+    </header>
+    <section>
+        <div id="qiniu_tm_leftpanel">
+            <img id="qiniu_tm_img" src="" alt="">
+        </div>
+        <div id="qiniu_tm_rightpanel">
+            <div>
+                <input type="file" id="qiniu_tm_imgselector" />
+            </div>
+            <div>
+                <button id="qiniu_tm_classify_single">票据单分类</button>
+                <button id="qiniu_tm_classify_10">票据10类分类</button>
+                <button id="qiniu_tm_classify_detect">票据检测</button>
+                <button id="qiniu_tm_classify_recog">票据识别</button>
+            </div>
+            <!-- <button id="qiniu_tm_recog_submit">识别</button> -->
+            <br />
+            <div>
+                <p>识别结果:</p>
+                <table id="result_table">
+                    
+                </table>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+
+    <script>
+        document.querySelector('#qiniu_tm_imgselector').addEventListener('change', function(e) {
+            let imgURL = window.URL.createObjectURL(e.target.files[0]);
+            document.querySelector('#qiniu_tm_img').src = imgURL;
+        });
+
+        document.querySelector('#qiniu_tm_classify_single').addEventListener('click', function(e) {
+            let imgURL = window.URL.createObjectURL(document.querySelector('#qiniu_tm_imgselector').files[0]);
+            let img = new Image();
+            img.src = imgURL;
+            document.querySelector('#modal_cover').removeAttribute('class');
+            img.onload = function() {
+                let data = getBase64Image(img);
+                // console.log(data);
+                let postBody = {
+                    headers: { 
+                        "Content-Type": "x-www-form-urlencoded"
+                    },
+                    method: 'POST',
+                    body: data
+                }
+
+                fetch('http://100.100.58.29:32300/pinganclassimg', postBody).then(e => e.text()).then(function(data){
+                    tmp = `<tr>
+                                <td>分类:</td>
+                                <td>${data}</td>
+                            </tr>`;
+                    document.querySelector('#result_table').innerHTML = tmp;
+                    document.querySelector('#modal_cover').setAttribute('class', 'modal-hide');
+                });
+            }
+        });
+    
+
+        document.querySelector('#qiniu_tm_classify_10').addEventListener('click', function(e) {
+            let imgURL = window.URL.createObjectURL(document.querySelector('#qiniu_tm_imgselector').files[0]);
+            let img = new Image();
+            img.src = imgURL;
+            document.querySelector('#modal_cover').removeAttribute('class');
+            img.onload = function() {
+                let data = getBase64Image(img);
+                // console.log(data);
+                let postBody = {
+                    headers: { 
+                        "Content-Type": "x-www-form-urlencoded"
+                    },
+                    method: 'POST',
+                    body: data
+                }
+
+                fetch('http://100.100.58.29:20000/universalocr', postBody).then(e => e.json()).then(function(data){
+                    let tmp = '';
+                    for(let key in data) {
+                        tmp += `<tr>
+                                    <td>${key}:</td>
+                                    <td>${data[key]}</td>
+                                </tr>`;
+                    }
+                    document.querySelector('#result_table').innerHTML = tmp;
+                    
+                    document.querySelector('#modal_cover').setAttribute('class', 'modal-hide');
+                });
+            }
+        });
+    
+
+        document.querySelector('#qiniu_tm_classify_recog').addEventListener('click', function(e) {
+            let imgURL = window.URL.createObjectURL(document.querySelector('#qiniu_tm_imgselector').files[0]);
+            let img = new Image();
+            img.src = imgURL;
+            document.querySelector('#modal_cover').removeAttribute('class');
+            img.onload = function() {
+                let data = getBase64Image(img);
+                // console.log(data);
+                let postBody = {
+                    headers: { 
+                        "Content-Type": "x-www-form-urlencoded"
+                    },
+                    method: 'POST',
+                    body: data
+                }
+
+                fetch('http://100.100.58.29:32000/universalocr', postBody).then(e => e.json()).then(function(data){
+                    let tmp = '';
+                    for(let key in data) {
+                        tmp += `<tr>
+                                    <td>${key}:</td>
+                                    <td>${data[key]}</td>
+                                </tr>`;
+                    }
+                    document.querySelector('#result_table').innerHTML = tmp;
+                    
+                    document.querySelector('#modal_cover').setAttribute('class', 'modal-hide');
+                });
+            }
+        });
+        
+
+        function getBase64Image(img) {
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+
+            var dataURL = canvas.toDataURL("image/png");
+            // return dataURL
+
+            return dataURL.replace("data:image/png;base64,", "");
+        }
+    </script>
+</body>
+</html>

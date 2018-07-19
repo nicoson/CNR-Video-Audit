@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:batch="http://www.springframework.org/schema/batch"
+    xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-3.0.xsd"
+    default-lazy-init="true">
+
+    <description>Batch Configuration</description>
+
+    <!-- 为Job提供持久化操作 -->
+    <bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+        <property name="transactionManager" ref="transactionManagerForBatch" />
+    </bean>
+
+    <!-- batch单独的事务管理 -->
+    <bean id="transactionManagerForBatch" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
+
+    <!-- 启动Job -->
+    <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+        <property name="jobRepository" ref="jobRepository" />
+    </bean>
+
+    <!-- 自动获取视频信息 -->
+   <!--  <bean id="batchGetVideoInfo" class="cn.qiniu.service.batch.GetVideoInfo"></bean> -->
+    
+    <bean id="batchGetVideoInfoBean" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <!--  <property name="targetObject">
+            <ref bean="batchGetVideoInfo" />
+        </property> -->
+        <property name="targetMethod">
+            <value>execute</value>
+        </property>
+        <!-- 对于相同的JobDetail，当指定多个Trigger时, 很可能第一个job完成之前，第二个job就开始了。指定concurrent设为false，多个job不会并发运行，第二个job将不会在第一个job完成之前开始 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- ======================== 调度触发器 ======================== -->
+   <!--  <bean id="batchGetVideoInfoTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="batchGetVideoInfoBean" />
+        每隔5秒钟触发一次 
+        <property name="cronExpression" value="0/5 * * * * ?" />
+    </bean> -->
+    
+    <!-- ======================== 调度工厂 ======================== -->
+    <!-- 通过再添加其他的ref元素可在list中放置多个触发器 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+            	<!-- <ref bean="batchGetVideoInfoTrigger" /> -->
+            </list>
+        </property>
+        <!-- 是否自动启动，该Bean被初始化后是否自动启动定时任务。 -->
+        <property name="autoStartup" value="false"/>
+    </bean>
+
+</beans>

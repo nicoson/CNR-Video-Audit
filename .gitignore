@@ -1,0 +1,10 @@
+target
+QiniuData/target
+QiniuWebSite/target
+VideoManager/target
+VideoManagerService/target
+VideoReview/target
+VideoReviewService/target
+*.mp4
+.settings
+

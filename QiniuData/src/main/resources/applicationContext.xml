@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <import resource="classpath:applicationContext-base.xml"/>
+    <import resource="classpath:applicationContext-httpclient.xml"/>
+    <import resource="classpath:applicationContext-datasource.xml"/>
+    <import resource="classpath:spring-context-batch.xml"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:spring-config.properties</value>
+        </property>
+    </bean>
+    
+    <!-- 当Spring容器启动完成后执行下面的这个Bean -->  
+    <bean class="cn.qiniu.util.EhCacheInitBean"/> 
+
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" lazy-init="true">
+        <property name="corePoolSize" value="10"/>
+        <property name="maxPoolSize" value="50"/>
+        <property name="queueCapacity" value="1000"/>
+        <property name="keepAliveSeconds" value="300"/>
+        <property name="rejectedExecutionHandler">
+            <bean class="java.util.concurrent.ThreadPoolExecutor$DiscardPolicy"/>
+        </property>
+    </bean>
+    <bean id="accessKey" class="java.lang.String">
+		<constructor-arg value="${accessKey}" />
+	</bean>
+	<bean id="secretKey" class="java.lang.String">
+		<constructor-arg value="${secretKey}" />
+	</bean>
+	<bean id="bucket" class="java.lang.String">
+		<constructor-arg value="${bucket}" />
+	</bean>
+	<bean id="cnrLogo" class="java.lang.String">
+		<constructor-arg value="${cnr.logo}" />
+	</bean>
+	<bean id="watermarkPipeline" class="java.lang.String">
+		<constructor-arg value="${qiniu.api.watermark.pipeline}" />
+	</bean>
+	<bean id="qiniuCallbackWatermark" class="java.lang.String">
+		<constructor-arg value="${qiniu.callback.setwatermark}" />
+	</bean>
+</beans>

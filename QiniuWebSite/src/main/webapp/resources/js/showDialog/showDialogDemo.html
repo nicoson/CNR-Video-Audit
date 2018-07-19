@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="PRAGMA" content="NO-CACHE" />
+		<title>SHOWDIALOGDEMO---byOPP</title>
+</head>
+<body>
+*提示框：top.showInfo('删除失败!');<BR>
+*确认框：top.showConfirm('确认删除吗?', function(){点击确认执行的内容});<BR>
+*异步加载内容：top.showWindow('弹窗标题','${base }/admin/adminPageAdd.action',900);<BR>
+
+////////////////////////////////<BR>
+*打开iframe加载页面：
+top.showIframeWindow('新增管理员','${jsPath }/showDialog/showDialogDemo.html',900,350,function(data){
+     		//关闭回调事件传值
+     		alert(data);
+     	});<BR>
+
+在子页面里：
+<button onclick="top.sd_remove()">只关闭窗口</button>
+<button onclick="top.sd_removeAndFN('NB')">关闭窗口同时回调父页面事件传值</button><BR>
+////////////////////////////////
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.qiniu.mapper.ReviewVideoMapper">
+	<select id="selectReviewVideoTaskList" resultType="cn.qiniu.entity.ReviewVideoTask">
+		SELECT
+			job_id id
+		FROM
+			review_video_manager
+		ORDER BY created_at DESC
+	</select>
+
+	<select id="selectReviewVideoId" parameterType="String"
+		resultType="String">
+		select video_id videoId from review_video_information where
+		id=#{jobId}
+	</select>
+</mapper>

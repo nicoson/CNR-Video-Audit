@@ -1,0 +1,218 @@
+body{
+	background: transparent !important;
+}
+/* 向右的箭头 */
+.dot-right {
+	font-size: 0;
+	line-height: 0;
+	border-width: 6px 12px;
+	border-color: #ACACAD;
+	border-right-width: 0;
+	border-style: dashed;
+	border-left-style: solid;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	position: absolute;
+	left: 100%;
+	top: 4px;
+}
+
+.manualAuditCon {
+	padding-right: 15px;
+	padding-left: 15px;
+    margin-top: 25px;
+    max-height: 540px;
+    overflow-y: auto;
+}
+
+.videoListOpreateCon .videoNumCon {
+	display: inline-block;
+	border: 1px solid #ACACAD;
+	border-radius: 8px;
+	position: relative;
+	left: -6px;
+	background: #ACACAD;
+	color: white;
+}
+
+.minNum {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.maxNum {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.videoNumCon .videoNum {
+	padding-left: 5px;
+	padding-right: 6px;
+	display: block;
+	float: left;
+	cursor: pointer;
+}
+
+.videoListOpreateCon {
+	text-align: right;
+}
+
+.videoListOpreateCon .refresh {
+	display: inline-block;
+	background: #419BF9;
+	border-radius: 8px;
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #F7FAFE;
+	position: relative;
+	top: -4px;
+	cursor: pointer;
+}
+
+.auditVideoListCon {
+	overflow: hidden;
+}
+
+.auditVideoList {
+    float: left;
+    width: 32%;
+   margin: 15px 8px;
+}
+
+.videoSub {
+	text-align: center;
+	position: relative;
+}
+
+.videoStyle {
+	height: 200px;
+	width: 400px;
+	
+}
+
+.auditBtn {
+	width: 75px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	border-radius: 8px;
+	margin-left: 44%;
+	cursor: pointer;
+	background: #409AF8;
+	color: #F7FAFE;
+	margin-top: 4px;
+}
+
+.videoDialogMask {
+    position: absolute;
+    width: 100.5%;
+    height: 84%;
+    top: 0%;
+    left: -0.2%;
+    background: rgba(185, 176, 176, 0.7);
+    z-index: 1000;
+}
+
+.remove {
+	left: 88%;
+	position: absolute;
+	top: -1%;
+	cursor: pointer;
+	    color: white;
+	font-size: 1.8em;
+}
+
+.clear {
+	clear: both;
+}
+
+.pageCon {
+	float: right;
+	color: #EEEEEF;
+}
+
+.pageTxt {
+	font-size: 14px;
+}
+/*点击× 取消审核的弹出层*/
+.cancelAuditTip {
+	width: 50%;
+	margin-left: 25%;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	margin-top: 9%;
+	background: #b9b4b4;
+}
+
+.tipsTxt {
+	color: #449BF7;
+    margin-top: 10px;
+}
+
+.btnCon {
+	width: 80%;
+	margin-left: 10%;
+	overflow: hidden;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.btn {
+    width: 50px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 8px;
+    background: white;
+    color: #449BF7;
+    padding: 0;
+}
+
+.btnCon #no {
+	float: left;
+}
+
+.btnCon #yes {
+	float: right;
+}
+
+.selecteShowNum {
+	cursor: pointer;
+	color: #B1B2B3;
+}
+.auditVideoList video{
+	width: 100%;
+	/* object-fit: fill; */
+}
+
+.videoSub .video-damage-note{
+height: 200px !important;
+    position: relative;
+    padding-bottom: 10%;
+    padding-top: 17%;
+
+	
+}
+
+/*视频地址 播放错误样式*/
+.errorDialogMask{
+	position: absolute;
+    width: 100.5%;
+    height: 84%;
+    top: 0%;
+    left: -0.2%;
+    background: rgba(185, 176, 176, 0.7);
+    z-index: 1000;
+}
+.errorTip{
+	    width: 50%;
+    margin-left: 25%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 18%;
+    background: #b9b4b4;
+	
+}
