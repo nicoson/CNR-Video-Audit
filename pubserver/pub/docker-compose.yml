@@ -1,0 +1,67 @@
+version: '3'
+services:
+  api:
+    build: ./apicd
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+      - dispatcher
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50M"
+        max-file: "1"
+
+  mgmtd:
+    build: ./mgmtd
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mongodb
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50M"
+        max-file: "1"
+
+  dispatcher:
+    build: ./dispatcher
+    ports:
+      - "9001:9001"
+    depends_on:
+      - mongodb
+      - mgmtd
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50M"
+        max-file: "1"
+
+  worker:
+    build: ./worker
+    depends_on:
+      - dispatcher
+    volumes:
+      - "/home/deploy/logs:/usr/src/app/logs"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50M"
+        max-file: "1"
+    
+    
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50M"
+        max-file: "1"
+  
+  admin_init:
+    build: ./admin
+    depends_on:
+      - dispatcher

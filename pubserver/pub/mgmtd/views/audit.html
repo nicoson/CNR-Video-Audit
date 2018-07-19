@@ -1,0 +1,85 @@
+<!-- pagination -->
+<script id="tpl-paging" type="text/x-jquery-tmpl">
+  <div>
+    {{if active == "1"}}
+    <li class="active">
+    {{/if}}
+    {{if active == "0"}}
+    <li>
+    {{/if}}
+      <a href="javascript:fnQuery({{html index}})">{{html page}}</a>
+    </li>
+  </div>
+</script>
+
+<table style="border-collapse:separate; border-spacing:0px 10px;">
+  <tr>
+    <td style="width:10%"><span class="label label-default" style="font-size:15px;margin-right:20px;">起止时段</span></td>
+    <td style="width:90%">
+      <select id="nodelist" class="form-control select select-primary select-sm" data-toggle="select" style="float:left;min-width:100px;width:5%;height:40px;margin-right:10px;border:1px solid #999;line-height:40px;"></select>
+      <input id="start" type="text" placeholder="起始时间，格式 2017/1/23 2:56" class="form-control" style="float:left;width:35%;margin-right:10px;">
+      <input id="end" type="text" placeholder="结束时间，格式 2017/1/23 13:02" class="form-control" style="float:left;width:35%;">
+    </td>
+  </tr>
+  <tr>
+    <td><span class="label label-default" style="font-size:15px;margin-right:20px;">过滤标签</span></td>
+    <td>
+      <div class="tagsinput-primary" style="margin-bottom:0;width:80%;">
+        <input id="tags" name="tagsinput" class="tagsinput" data-role="tagsinput" value="" placeholder="格式 sign:abc" />
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="label label-default" style="font-size:15px;margin-right:20px;">日志级别</span></td>
+    <td>
+      <button id="debug" onclick="fnLv(this)" sw="1" type="button" class="btn btn-success btn-sm">debug</button>
+      <button id="info" onclick="fnLv(this)" sw="1" type="button" class="btn btn-primary btn-sm">info</button>
+      <button id="notice" onclick="fnLv(this)" sw="1" type="button" class="btn btn-info btn-sm">notice</button>
+      <button id="warn" onclick="fnLv(this)" sw="1" type="button" class="btn btn-warning btn-sm">warning</button>
+      <button id="error" onclick="fnLv(this)" sw="1" type="button" class="btn btn-danger btn-sm">error</button>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="label label-default" style="font-size:15px;margin-right:20px;">模糊查询</span></td>
+    <td>
+      <input id="keyword" type="text" placeholder="查询日志内容中包含的关键字" class="form-control" style="width:40%;float:left;">
+      <button onclick="fnQuery(0)" type="button" class="btn btn-primary btn-block" style="float:left;margin-left:20px;width:15%;">开始查询</button>
+    </td>
+  </tr>
+</table>
+
+
+<nav>
+  <ul class="pagination" id="header-paging">
+  </ul>
+</nav>
+
+<style>
+  .log { padding:5px; margin-bottom:0;}
+  .log-info { background-color:#D5FFF7;border-color:#C0E6DE; }
+  .log-debug {}
+  .log-notice {}
+  .log-warn {}
+  .log-error {}
+</style>
+
+<script id="tpl-log" type="text/x-jquery-tmpl">
+  <div>
+    {{if level == "debug"}} <div class="alert alert-success log log-debug" role="alert"> {{/if}}
+    {{if level == "info"}} <div class="alert alert-info log log-info" role="alert"> {{/if}}
+    {{if level == "notice"}} <div class="alert alert-info log log-notice" role="alert"> {{/if}}
+    {{if level == "warn"}} <div class="alert alert-warning log log-warn" role="alert"> {{/if}}
+    {{if level == "error"}} <div class="alert alert-danger log log-error" role="alert"> {{/if}}
+      {{html message}}
+    </div>
+  </div>
+</script>
+
+<div id="log-box" style="margin-top:10px;margin-bottom:10px"></div>
+
+<nav>
+  <ul class="pagination" id="footer-paging">
+  </ul>
+</nav>
+
+<script src="/static/js/audit.js"></script>

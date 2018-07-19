@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pub</title>
+    <script src="<?.staticPath?>/lib/jquery/jquery.js"></script>
+    <script src="<?.staticPath?>/lib/jquery/jquery.tmpl.min.js"></script>
+    <link href="<?.staticPath?>/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="<?.staticPath?>/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="<?.staticPath?>/lib/flatui/css/flat-ui.css" rel="stylesheet">
+    <script src="<?.staticPath?>/lib/flatui/js/flat-ui.min.js"></script>
+  </head>
+  <style>
+    body { font-size:13px; }
+    .container { padding-right:80px; }
+    body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+    .clear { height:20px; }
+    .btn { font-size:13px; }
+    .table { word-wrap:break-word; }
+    .table-center { text-align:center; }
+    .table td { vertical-align:middle!important; }
+    .table span { line-height:30px; }
+    .table .bootstrap-switch div span { font-size:13px; line-height:20px; }
+    .navbar-nav a.active { color:#1abc9c!important; }
+  </style>
+  <script>
+    function logout() {
+        $.ajax({
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            url: '/api/action',
+            data: JSON.stringify({
+                "type":"mgmt",
+                "action":"logout",
+                "args": {}
+            }),
+            success: function (msg, status) {
+                window.location.href='/';
+            },
+            error: function (xhr, desc, err) {
+                alert("登出错误");
+            }
+        });
+    }
+
+    function getC(name) {
+        if (document.cookie.length > 0) {
+            start = document.cookie.indexOf(name + "=")
+            if (start != -1) {
+                start = start + name.length + 1
+                end = document.cookie.indexOf(";", start)
+                if (end == -1) end = document.cookie.length
+                return unescape(document.cookie.substring(start, end))
+            }
+        }
+        return ""
+    }
+
+    function setC(name, value, exp) {
+        var exdate = new Date()
+        exdate.setDate(exdate.getDate() + exp)
+        document.cookie = name + "=" + escape(value) + ((exp == null) ? "" : ";expires=" + exdate.toGMTString())
+    }
+  </script>
+  <body>
+    <div class="container">
+      <div style="height:20px"></div>
+
+      <!-- navibar -->
+      <div class="row">
+        <div class="col-xs-12">
+          <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                <span class="sr-only">Toggle navigation</span>
+              </button>
+              <a class="navbar-brand" href="">PUB&nbsp;&nbsp;</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+              <ul id="navul" class="nav navbar-nav navbar-left">
+                <li id="navli-service"><a <? if eq .currentPage "service" ?> class="active" <? end ?> href="/view/service">服务信息</a></li>
+                <li id="navli-status"><a <? if eq .currentPage "status" ?> class="active" <? end ?> href="/view/status">进程状态</a></li>
+                <li id="navli-config"><a <? if eq .currentPage "config" ?> class="active" <? end ?> href="/view/config">配置进程</a></li>
+              </ul>
+              <a class="fui-power" href="javascript:logout();" style="color:white;float:right;margin-top:12px;"></a>
+            </div><!-- /.navbar-collapse -->
+          </nav><!-- /navbar -->
+        </div>
+      </div> <!-- /row -->
+
+      <div style="height:20px"></div>
+
+      <?.LayoutContent?>
+
+    </div> <!-- /container -->
+  </body>
+</html>
